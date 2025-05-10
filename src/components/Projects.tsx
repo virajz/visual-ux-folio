@@ -45,24 +45,15 @@ const Projects = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    // Force visibility after a short delay 
+    const timer = setTimeout(() => {
+      const projectElements = document.querySelectorAll('.project-card');
+      projectElements.forEach((el) => {
+        el.classList.add('animate');
+      });
+    }, 800);
 
-    const projectElements = document.querySelectorAll('.project-card');
-    projectElements.forEach((el) => observer.observe(el));
-
-    return () => {
-      projectElements.forEach((el) => observer.unobserve(el));
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -81,13 +72,17 @@ const Projects = () => {
             to={`/case-study/${project.id}`} 
             key={project.id}
             className="project-card animate-on-scroll group relative overflow-hidden rounded-lg bg-secondary"
-            style={{ animationDelay: `${index * 150}ms` }}
+            style={{ 
+              animationDelay: `${index * 150}ms`,
+              opacity: 1 // Force visibility initially
+            }}
           >
             <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden">
               <img 
                 src={project.image} 
                 alt={project.title} 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="eager"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 to-transparent flex flex-col justify-end p-6 opacity-90 group-hover:opacity-100 transition-opacity">

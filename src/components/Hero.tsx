@@ -6,6 +6,7 @@ const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Set visible immediately on mount
     setIsVisible(true);
   }, []);
 

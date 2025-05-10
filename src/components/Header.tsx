@@ -28,7 +28,7 @@ const Header = () => {
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <RouterLink to="/" className="text-2xl font-inter font-bold text-white">
-          Jane Doe<span className="text-electricBlue">.</span>
+          Viraj Zaveri<span className="text-electricBlue">.</span>
         </RouterLink>
         
         {/* Desktop Navigation */}

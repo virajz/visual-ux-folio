@@ -19,14 +19,18 @@ const Index = () => {
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
         
-        if (elementTop < windowHeight * 0.9) {
+        // Trigger animation when element is 80% into the viewport
+        if (elementTop < windowHeight * 0.8) {
           element.classList.add('animate');
         }
       });
     };
     
-    // Run once on mount with a slight delay to ensure DOM is fully rendered
-    setTimeout(animateOnScroll, 100);
+    // Run once on mount with a delay to ensure DOM is fully rendered
+    setTimeout(() => {
+      animateOnScroll();
+      console.log('Initial animation check completed');
+    }, 300);
     
     // Add scroll event listener
     window.addEventListener('scroll', animateOnScroll);
