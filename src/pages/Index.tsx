@@ -19,14 +19,14 @@ const Index = () => {
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
         
-        if (elementTop < windowHeight * 0.85) {
+        if (elementTop < windowHeight * 0.9) {
           element.classList.add('animate');
         }
       });
     };
     
-    // Run once on mount
-    animateOnScroll();
+    // Run once on mount with a slight delay to ensure DOM is fully rendered
+    setTimeout(animateOnScroll, 100);
     
     // Add scroll event listener
     window.addEventListener('scroll', animateOnScroll);

@@ -10,13 +10,14 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-white font-inter font-semibold text-lg">
-              Jane Doe<span className="text-electricBlue">.</span>
+              Viraj Zaveri<span className="text-electricBlue">.</span>
             </p>
             <p className="text-softGray text-sm mt-1">Senior UX Designer</p>
+            <p className="text-softGray text-sm">Surat, India</p>
           </div>
           
           <div className="text-softGray text-sm">
-            <p>© {currentYear} Jane Doe. All rights reserved.</p>
+            <p>© {currentYear} Viraj Zaveri. All rights reserved.</p>
           </div>
         </div>
       </div>
